@@ -242,8 +242,8 @@ function TableCard({ table }: { table: Table }) {
           <div className="rounded-xl border-2 border-dashed border-gray-200 bg-gray-50 px-3 py-2 text-center flex-shrink-0">
             <span className="font-bold text-gray-600 text-sm">テーブル {table.tableNumber}</span>
             <div className="flex justify-center gap-2 text-xs mt-0.5">
-              <span className="text-blue-400">♂{maleCount}</span>
-              <span className="text-pink-400">♀{femaleCount}</span>
+              <span className="text-blue-400">男{maleCount}</span>
+              <span className="text-pink-400">女{femaleCount}</span>
               <span className="text-gray-400">{table.members.length}名</span>
             </div>
           </div>
@@ -291,9 +291,6 @@ function SortableMemberChip({ member }: { member: Member }) {
           : 'bg-pink-50 border-pink-100 text-pink-800 hover:bg-pink-100'
       }`}
     >
-      <span className={`${member.gender === 'male' ? 'text-blue-400' : 'text-pink-400'}`}>
-        {member.gender === 'male' ? '♂' : '♀'}
-      </span>
       <span>{member.name}</span>
     </div>
   );

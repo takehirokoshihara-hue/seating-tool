@@ -79,8 +79,8 @@ function PrintTableCard({ table }: { table: Table }) {
         >
           <span className="font-bold text-gray-600 text-xs">テーブル {table.tableNumber}</span>
           <div className="flex justify-center gap-1.5 text-xs mt-0.5" style={{ fontSize: '9px' }}>
-            <span style={{ color: '#3b82f6' }}>♂{maleCount}</span>
-            <span style={{ color: '#ec4899' }}>♀{femaleCount}</span>
+            <span style={{ color: '#3b82f6' }}>男{maleCount}</span>
+            <span style={{ color: '#ec4899' }}>女{femaleCount}</span>
             <span style={{ color: '#9ca3af' }}>{table.members.length}名</span>
           </div>
         </div>
@@ -107,9 +107,6 @@ function PrintMemberChip({ member }: { member: Member }) {
         fontSize: '10px',
       }}
     >
-      <span style={{ color: member.gender === 'male' ? '#60a5fa' : '#f472b6', fontSize: '8px' }}>
-        {member.gender === 'male' ? '♂' : '♀'}
-      </span>
       <span>{member.name}</span>
     </div>
   );

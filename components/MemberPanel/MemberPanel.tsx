@@ -167,7 +167,7 @@ function MemberRow({
             : 'bg-pink-100 text-pink-600'
         }`}
       >
-        {member.gender === 'male' ? '♂' : '♀'}
+        {member.gender === 'male' ? '男' : '女'}
       </span>
 
       {/* Name + attributes */}
