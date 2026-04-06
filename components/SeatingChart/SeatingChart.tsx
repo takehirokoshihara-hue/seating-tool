@@ -219,8 +219,6 @@ function Stepper({
 }
 
 function TableCard({ table }: { table: Table }) {
-  const maleCount = table.members.filter((m) => m.gender === 'male').length;
-  const femaleCount = table.members.filter((m) => m.gender === 'female').length;
   const { top, bottom } = splitAround(table.members);
 
   return (
@@ -241,11 +239,7 @@ function TableCard({ table }: { table: Table }) {
           {/* Table surface */}
           <div className="rounded-xl border-2 border-dashed border-gray-200 bg-gray-50 px-3 py-2 text-center flex-shrink-0">
             <span className="font-bold text-gray-600 text-sm">テーブル {table.tableNumber}</span>
-            <div className="flex justify-center gap-2 text-xs mt-0.5">
-              <span className="text-blue-400">男{maleCount}</span>
-              <span className="text-pink-400">女{femaleCount}</span>
-              <span className="text-gray-400">{table.members.length}名</span>
-            </div>
+            <div className="text-xs text-gray-400 mt-0.5">{table.members.length}名</div>
           </div>
 
           {/* Bottom seats */}
@@ -285,11 +279,7 @@ function SortableMemberChip({ member }: { member: Member }) {
           .filter(Boolean)
           .join(' / ') || undefined
       }
-      className={`flex items-center gap-1 px-2 py-1 rounded-lg cursor-grab active:cursor-grabbing select-none text-xs font-medium border transition-shadow hover:shadow-sm ${
-        member.gender === 'male'
-          ? 'bg-blue-50 border-blue-100 text-blue-800 hover:bg-blue-100'
-          : 'bg-pink-50 border-pink-100 text-pink-800 hover:bg-pink-100'
-      }`}
+      className="flex items-center gap-1 px-2 py-1 rounded-lg cursor-grab active:cursor-grabbing select-none text-xs font-medium border border-gray-200 bg-gray-50 text-gray-700 hover:bg-gray-100 transition-shadow hover:shadow-sm"
     >
       <span>{member.name}</span>
     </div>

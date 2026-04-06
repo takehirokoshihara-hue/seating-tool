@@ -58,8 +58,6 @@ function splitAround<T>(items: T[]): { top: T[]; bottom: T[] } {
 }
 
 function PrintTableCard({ table }: { table: Table }) {
-  const maleCount = table.members.filter((m) => m.gender === 'male').length;
-  const femaleCount = table.members.filter((m) => m.gender === 'female').length;
   const { top, bottom } = splitAround(table.members);
 
   return (
@@ -78,11 +76,7 @@ function PrintTableCard({ table }: { table: Table }) {
           style={{ borderColor: '#d1d5db', backgroundColor: '#f9fafb' }}
         >
           <span className="font-bold text-gray-600 text-xs">テーブル {table.tableNumber}</span>
-          <div className="flex justify-center gap-1.5 text-xs mt-0.5" style={{ fontSize: '9px' }}>
-            <span style={{ color: '#3b82f6' }}>男{maleCount}</span>
-            <span style={{ color: '#ec4899' }}>女{femaleCount}</span>
-            <span style={{ color: '#9ca3af' }}>{table.members.length}名</span>
-          </div>
+          <div style={{ fontSize: '9px', color: '#9ca3af', marginTop: '2px' }}>{table.members.length}名</div>
         </div>
 
         {/* Bottom seats */}
@@ -99,13 +93,8 @@ function PrintTableCard({ table }: { table: Table }) {
 function PrintMemberChip({ member }: { member: Member }) {
   return (
     <div
-      className="flex items-center gap-0.5 px-1.5 py-0.5 rounded text-xs border"
-      style={{
-        backgroundColor: member.gender === 'male' ? '#eff6ff' : '#fdf2f8',
-        borderColor: member.gender === 'male' ? '#bfdbfe' : '#fbcfe8',
-        color: member.gender === 'male' ? '#1e40af' : '#9d174d',
-        fontSize: '10px',
-      }}
+      className="flex items-center px-1.5 py-0.5 rounded text-xs border"
+      style={{ backgroundColor: '#f9fafb', borderColor: '#e5e7eb', color: '#374151', fontSize: '10px' }}
     >
       <span>{member.name}</span>
     </div>
